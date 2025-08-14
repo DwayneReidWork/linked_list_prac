@@ -77,6 +77,7 @@ node_t *remove_node(node_t *head, node_t *node_to_remove)
     node_to_remove->next = NULL;
     node_to_remove->prev = NULL;
 
+    free(node_to_remove);
     return head; // head may have changed
 }
 
@@ -101,4 +102,15 @@ int findSize(node_t *head)
         head = head->next;
     }
     return size;
+}
+
+void free_list(node_t *head)
+{
+    node_t *tmp;
+    while (head != NULL)
+    {
+        tmp = head;
+        head = head->next;
+        free(tmp);
+    }
 }

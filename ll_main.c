@@ -33,6 +33,6 @@ int main()
     printlist(head);
 
     printf("The list has %d nodes.\n", findSize(head));
-
+    free_list(head);
     return 0;
 }
